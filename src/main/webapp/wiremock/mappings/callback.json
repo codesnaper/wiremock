@@ -1,0 +1,10 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/stub/callback"
+  },
+  "response": {
+    "bodyFileName": "test.json",
+    "transformers": ["response-template"]
+  }
+}

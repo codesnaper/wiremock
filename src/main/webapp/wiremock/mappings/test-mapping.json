@@ -1,0 +1,36 @@
+{
+  "request": {
+    "urlPath": "/stub/something-async",
+    "method": "POST"
+  },
+  "response": {
+    "status": 200
+  },
+  "postServeActions": [
+    {
+      "name": "eg-callbacks",
+      "parameters": {
+        "callback": [
+          {
+            "method": "POST",
+            "url": "http://localhost:8080/stub/token",
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "body": "{ \"result\": \"SUCCESS\" }"
+          },
+          {
+            "method": "POST",
+            "url": "http://localhost:8080/stub/callback",
+            "headers": {
+              "Content-Type": "application/json",
+              "token": "{{token}}"
+            },
+            "body": "{ \"result\": \"{{token}}\" }",
+            "digital-sign-xml": true
+          }
+        ]
+      }
+    }
+  ]
+}
